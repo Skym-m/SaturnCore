@@ -1,5 +1,6 @@
 import {CONVOY_STATUS, ConvoyStatus} from "./convoy-status";
-import {TripsStatus} from "@/lib/trips-status";
+import {TripsStatus} from "./trips-status";
+import {LocalizationStatus} from "./loc-status";
 
 
 /**
@@ -113,8 +114,6 @@ export type User = {
  */
 
 export type VehicleType = "VO" | "VN";
-
-export type LocalizationStatus = "new" | "broadcasted" | "found" | "closed";
 
 export type LocalizationResponse = "pending" | "yes" | "no";
 
