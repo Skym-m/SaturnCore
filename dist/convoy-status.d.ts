@@ -10,5 +10,7 @@ export declare const CONVOY_STATUS: {
 export type ConvoyStatus = typeof CONVOY_STATUS[keyof typeof CONVOY_STATUS];
 export declare const ACTIVE_STATUSES: ConvoyStatus[];
 export declare const FINAL_STATUSES: ConvoyStatus[];
+export declare const ACTIONABLE_CONVOY_STATUSES: ConvoyStatus[];
 export declare const CONVOY_STATUS_TEXT: Record<ConvoyStatus, string>;
-export declare function isActionnableConvoyStatus(status: ConvoyStatus): status is "assigned" | "completed" | "incomplete";
+export declare function isActionableConvoyStatus(status: ConvoyStatus): boolean;
+export declare const isActionnableConvoyStatus: typeof isActionableConvoyStatus;

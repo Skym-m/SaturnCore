@@ -24,6 +24,12 @@ export const FINAL_STATUSES: ConvoyStatus[] = [
     CONVOY_STATUS.ARCHIVED,
 ];
 
+export const ACTIONABLE_CONVOY_STATUSES: ConvoyStatus[] = [
+    CONVOY_STATUS.ASSIGNED,
+    CONVOY_STATUS.COMPLETED,
+    CONVOY_STATUS.INCOMPLETE,
+];
+
 export const CONVOY_STATUS_TEXT: Record<ConvoyStatus, string> = {
     new: "Demande envoyée",
     in_review: "En cours d’instruction",
@@ -34,9 +40,9 @@ export const CONVOY_STATUS_TEXT: Record<ConvoyStatus, string> = {
     archived: "Demande archivée",
 };
 
-export function isActionnableConvoyStatus(status: ConvoyStatus) {
-    return (
-        status === CONVOY_STATUS.ASSIGNED ||
-        status === CONVOY_STATUS.COMPLETED) ||
-        status === CONVOY_STATUS.INCOMPLETE;
+export function isActionableConvoyStatus(status: ConvoyStatus) {
+    return ACTIONABLE_CONVOY_STATUSES.includes(status);
 }
+
+// Backward-compatibility alias (kept for existing imports).
+export const isActionnableConvoyStatus = isActionableConvoyStatus;

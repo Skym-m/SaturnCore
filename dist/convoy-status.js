@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CONVOY_STATUS_TEXT = exports.FINAL_STATUSES = exports.ACTIVE_STATUSES = exports.CONVOY_STATUS = void 0;
-exports.isActionnableConvoyStatus = isActionnableConvoyStatus;
+exports.isActionnableConvoyStatus = exports.CONVOY_STATUS_TEXT = exports.ACTIONABLE_CONVOY_STATUSES = exports.FINAL_STATUSES = exports.ACTIVE_STATUSES = exports.CONVOY_STATUS = void 0;
+exports.isActionableConvoyStatus = isActionableConvoyStatus;
 exports.CONVOY_STATUS = {
     NEW: "new",
     IN_REVIEW: "in_review",
@@ -22,6 +22,11 @@ exports.FINAL_STATUSES = [
     exports.CONVOY_STATUS.INCOMPLETE,
     exports.CONVOY_STATUS.ARCHIVED,
 ];
+exports.ACTIONABLE_CONVOY_STATUSES = [
+    exports.CONVOY_STATUS.ASSIGNED,
+    exports.CONVOY_STATUS.COMPLETED,
+    exports.CONVOY_STATUS.INCOMPLETE,
+];
 exports.CONVOY_STATUS_TEXT = {
     new: "Demande envoyée",
     in_review: "En cours d’instruction",
@@ -31,8 +36,8 @@ exports.CONVOY_STATUS_TEXT = {
     incomplete: "Problème de livraison",
     archived: "Demande archivée",
 };
-function isActionnableConvoyStatus(status) {
-    return (status === exports.CONVOY_STATUS.ASSIGNED ||
-        status === exports.CONVOY_STATUS.COMPLETED) ||
-        status === exports.CONVOY_STATUS.INCOMPLETE;
+function isActionableConvoyStatus(status) {
+    return exports.ACTIONABLE_CONVOY_STATUSES.includes(status);
 }
+// Backward-compatibility alias (kept for existing imports).
+exports.isActionnableConvoyStatus = isActionableConvoyStatus;
