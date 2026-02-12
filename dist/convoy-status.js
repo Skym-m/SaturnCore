@@ -1,4 +1,8 @@
-export const CONVOY_STATUS = {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CONVOY_STATUS_TEXT = exports.FINAL_STATUSES = exports.ACTIVE_STATUSES = exports.CONVOY_STATUS = void 0;
+exports.isActionnableConvoyStatus = isActionnableConvoyStatus;
+exports.CONVOY_STATUS = {
     NEW: "new",
     IN_REVIEW: "in_review",
     SCHEDULED: "scheduled",
@@ -7,18 +11,18 @@ export const CONVOY_STATUS = {
     INCOMPLETE: "incomplete",
     ARCHIVED: "archived",
 };
-export const ACTIVE_STATUSES = [
-    CONVOY_STATUS.NEW,
-    CONVOY_STATUS.IN_REVIEW,
-    CONVOY_STATUS.SCHEDULED,
-    CONVOY_STATUS.ASSIGNED,
+exports.ACTIVE_STATUSES = [
+    exports.CONVOY_STATUS.NEW,
+    exports.CONVOY_STATUS.IN_REVIEW,
+    exports.CONVOY_STATUS.SCHEDULED,
+    exports.CONVOY_STATUS.ASSIGNED,
 ];
-export const FINAL_STATUSES = [
-    CONVOY_STATUS.COMPLETED,
-    CONVOY_STATUS.INCOMPLETE,
-    CONVOY_STATUS.ARCHIVED,
+exports.FINAL_STATUSES = [
+    exports.CONVOY_STATUS.COMPLETED,
+    exports.CONVOY_STATUS.INCOMPLETE,
+    exports.CONVOY_STATUS.ARCHIVED,
 ];
-export const CONVOY_STATUS_TEXT = {
+exports.CONVOY_STATUS_TEXT = {
     new: "Demande envoyée",
     in_review: "En cours d’instruction",
     scheduled: "Livraison planifiée",
@@ -27,8 +31,8 @@ export const CONVOY_STATUS_TEXT = {
     incomplete: "Problème de livraison",
     archived: "Demande archivée",
 };
-export function isActionnableConvoyStatus(status) {
-    return (status === CONVOY_STATUS.ASSIGNED ||
-        status === CONVOY_STATUS.COMPLETED) ||
-        status === CONVOY_STATUS.INCOMPLETE;
+function isActionnableConvoyStatus(status) {
+    return (status === exports.CONVOY_STATUS.ASSIGNED ||
+        status === exports.CONVOY_STATUS.COMPLETED) ||
+        status === exports.CONVOY_STATUS.INCOMPLETE;
 }

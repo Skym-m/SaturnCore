@@ -1,18 +1,24 @@
-export const LOC_STATUS = {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.LOC_STATUS_TEXT = exports.LOC_FINAL_STATUSES = exports.LOC_ACTIVE_STATUSES = exports.LOC_STATUS = void 0;
+exports.isActiveLocalizationStatus = isActiveLocalizationStatus;
+exports.isFinalLocalizationStatus = isFinalLocalizationStatus;
+exports.isActionableLocalizationStatus = isActionableLocalizationStatus;
+exports.LOC_STATUS = {
     NEW: "new",
     BROADCASTED: "broadcasted",
     FOUND: "found",
     CLOSED: "closed",
 };
-export const LOC_ACTIVE_STATUSES = [
-    LOC_STATUS.NEW,
-    LOC_STATUS.BROADCASTED,
+exports.LOC_ACTIVE_STATUSES = [
+    exports.LOC_STATUS.NEW,
+    exports.LOC_STATUS.BROADCASTED,
 ];
-export const LOC_FINAL_STATUSES = [
-    LOC_STATUS.FOUND,
-    LOC_STATUS.CLOSED,
+exports.LOC_FINAL_STATUSES = [
+    exports.LOC_STATUS.FOUND,
+    exports.LOC_STATUS.CLOSED,
 ];
-export const LOC_STATUS_TEXT = {
+exports.LOC_STATUS_TEXT = {
     new: "Demande envoyée à la concession ciblée",
     broadcasted: "Recherche étendue aux autres concessions",
     found: "Véhicule localisé",
@@ -21,13 +27,13 @@ export const LOC_STATUS_TEXT = {
 /* =========================
    HELPERS
 ========================= */
-export function isActiveLocalizationStatus(status) {
-    return LOC_ACTIVE_STATUSES.includes(status);
+function isActiveLocalizationStatus(status) {
+    return exports.LOC_ACTIVE_STATUSES.includes(status);
 }
-export function isFinalLocalizationStatus(status) {
-    return LOC_FINAL_STATUSES.includes(status);
+function isFinalLocalizationStatus(status) {
+    return exports.LOC_FINAL_STATUSES.includes(status);
 }
-export function isActionableLocalizationStatus(status) {
-    return status === LOC_STATUS.NEW ||
-        status === LOC_STATUS.BROADCASTED;
+function isActionableLocalizationStatus(status) {
+    return status === exports.LOC_STATUS.NEW ||
+        status === exports.LOC_STATUS.BROADCASTED;
 }
