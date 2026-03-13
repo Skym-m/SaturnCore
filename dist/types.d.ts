@@ -33,7 +33,7 @@ export type ConvoyRequest = {
  * USER / ROLE
  * =========================
  */
-export type Role = "seller" | "manager_vo" | "manager_vn" | "transporter" | "admin";
+export type Role = "seller" | "manager_vo" | "manager_vn" | "transporter" | "driver" | "admin";
 export type User = {
     id: string;
     email: string;

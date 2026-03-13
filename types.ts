@@ -51,6 +51,7 @@ export type Role =
     | "manager_vo"
     | "manager_vn"
     | "transporter"
+    | "driver"
     | "admin";
 
 export type User = {
