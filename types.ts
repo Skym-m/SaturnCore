@@ -11,11 +11,13 @@ import {LocalizationStatus} from "./loc-status";
 
 export type Concession = {
     id: string;
+    organization_id: string;
     name: string;
 };
 
 export type ConvoyRequest = {
     id: string;
+    organization_id: string;
     reference_number: number;
 
     brand: string;
@@ -56,7 +58,38 @@ export type Role =
 
 export type User = {
     id: string;
+    organization_id: string;
     email: string;
+};
+
+export type Organization = {
+    id: string;
+    slug: string;
+    name: string;
+    is_active: boolean;
+    created_at: string;
+    updated_at: string;
+};
+
+export type OrganizationBranding = {
+    organization_id: string;
+    app_name: string | null;
+    logo_url: string | null;
+    login_background_url: string | null;
+    login_title: string | null;
+    login_subtitle: string | null;
+    footer_text: string | null;
+    meta_title: string | null;
+    meta_description: string | null;
+    primary_color: string | null;
+    updated_at: string;
+};
+
+export type OrganizationSettings = {
+    organization_id: string;
+    settings: Record<string, unknown>;
+    feature_flags: Record<string, boolean>;
+    updated_at: string;
 };
 
 
@@ -72,6 +105,7 @@ export type LocalizationResponse = "pending" | "yes" | "no";
 
 export type LocalizationItem = {
     __type: "sent" | "received";
+    organization_id: string;
 
     requestId: string;
     responseId: string | null;
@@ -101,6 +135,7 @@ export type LocalizationItem = {
 
 export type Trip = {
     id: string;
+    organization_id: string;
 
     transporter_id: string;
 
@@ -124,6 +159,7 @@ export type Trip = {
 
 export type TripAssignment = {
     id: string;
+    organization_id: string;
     trip_id: string;
     convoy_request_id: string;
     created_at: string;
